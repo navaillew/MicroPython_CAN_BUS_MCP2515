@@ -42,8 +42,8 @@ class CanMsg:
 
 class CAN_1:
     ERROR = ERROR
-    def __init__(self, board: str = "CANBed_RP2040", spi: int = 0, spics: int = 9):
-        self.can = CAN(SPI(cs=spics))
+    def __init__(self, sck_pin: int = 2, miso_pin: int = 4, mosi_pin: int = 3, spi: int = 0, spics: int = 9):
+        self.can = CAN(SPI(cs=spics, bus=spi, sck_pin=sck_pin, miso_pin=miso_pin, mosi_pin=mosi_pin))
     def begin(self, bitrate: int = CAN_SPEED.CAN_500KBPS, canclock: int = CAN_CLOCK.MCP_16MHZ, mode: str = 'normal'):
         ret = self.can.reset()
         if ret != ERROR.ERROR_OK:

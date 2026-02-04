@@ -12,9 +12,9 @@ from . import SPI_DEFAULT_BAUDRATE, SPI_DUMMY_INT, SPI_TRANSFER_LEN, SPI_HOLD_US
 
 
 class SPI:
-    def __init__(self, cs: int, baudrate: int = SPI_DEFAULT_BAUDRATE) -> None:
+    def __init__(self, cs: int, bus, sck_pin, miso_pin, mosi_pin, baudrate: int = SPI_DEFAULT_BAUDRATE) -> None:
         self._SPICS = Pin(cs, Pin.OUT)
-        self._SPI = self.init(baudrate=baudrate)  # type: Any
+        self._SPI = self.init(baudrate=baudrate, spi_bus=bus, sck_pin=sck_pin, miso_pin=miso_pin, mosi_pin=mosi_pin)  # type: Any
         self.end()
 
     def init(self, baudrate: int) -> Any:

@@ -2,17 +2,12 @@ from machine import Pin, SPI as MICROPYTHON_SPI
 
 from .spi import SPI
 
-SPI_SCK_PIN = 2
-SPI_MOSI_PIN = 3
-SPI_MISO_PIN = 4
-SPI_CS_PIN = 9
-
 class SPIPICO(SPI):
-    def init(self, baudrate: int) -> Any :
+    def init(self, baudrate: int, spi_bus: int, sck_pin: int, mosi_pin: int, miso_pin: int) -> Any :
         return MICROPYTHON_SPI(
-            0,
-            sck=Pin(SPI_SCK_PIN),
-            mosi=Pin(SPI_MOSI_PIN),
-            miso=Pin(SPI_MISO_PIN),
+            spi_bus,
+            sck=Pin(sck_pin),
+            mosi=Pin(mosi_pin),
+            miso=Pin(miso_pin),
             baudrate=baudrate
         )
