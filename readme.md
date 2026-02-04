@@ -1,3 +1,18 @@
+Edited to allow configurable SPI pins on RP2040. I offer no guarantee that this works or is set up well.
+
+Usage:
+
+```
+CAN_SPI_BUS = 0
+CAN_SPI_CS = 9
+CAN_SPI_CLK = 2
+CAN_SPI_MOSI = 3
+CAN_SPI_MISO = 4
+
+can = Can(spi=CAN_SPI_BUS,spics=CAN_SPI_CS,sck_pin=CAN_SPI_CLK,mosi_pin=CAN_SPI_MOSI, miso_pin=CAN_SPI_MISO)
+```
+Defaults are shown, CS pin can be changed to any GPIO. If any other SPI pins are changed, I recommend defining them all.
+
 # MicroPython CAN Bus Library
 
 MicroPython library for MCP2515, it works for most of the MicroPython boards.
