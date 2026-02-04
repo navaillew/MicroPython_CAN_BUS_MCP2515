@@ -1,7 +1,4 @@
-try:
-    from pyb import SPI
-except ImportError:
-    from machine import SPI
+from machine import SPI
 
 
 SPI_DUMMY_INT = 0x00

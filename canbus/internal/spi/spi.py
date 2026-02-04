@@ -6,10 +6,7 @@ except ImportError:
 import sys
 import time
 
-try:
-    from pyb import Pin
-except ImportError:
-    from machine import Pin
+from machine import Pin
 
 from . import SPI_DEFAULT_BAUDRATE, SPI_DUMMY_INT, SPI_TRANSFER_LEN, SPI_HOLD_US
 
