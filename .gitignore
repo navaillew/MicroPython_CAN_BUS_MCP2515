@@ -1,4 +1,4 @@
 dist
 build
 *.egg-info/
-main.py
+mr2_can.py
