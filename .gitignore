@@ -3,3 +3,4 @@ build
 *.egg-info/
 mr2_can.py
 .micropico
+SH1107/
